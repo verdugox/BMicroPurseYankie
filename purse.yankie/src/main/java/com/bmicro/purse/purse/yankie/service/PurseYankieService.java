@@ -1,7 +1,9 @@
 package com.bmicro.purse.purse.yankie.service;
 
 import com.bmicro.purse.purse.yankie.entity.PurseYankie;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PurseYankieService {
 
     private final PurseYankieEventsService purseYankieEventsService;

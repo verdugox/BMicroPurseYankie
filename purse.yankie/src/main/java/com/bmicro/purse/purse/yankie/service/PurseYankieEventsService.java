@@ -1,6 +1,7 @@
 package com.bmicro.purse.purse.yankie.service;
 
 import com.bmicro.purse.purse.yankie.entity.PurseYankie;
+import com.bmicro.purse.purse.yankie.events.Event;
 import com.bmicro.purse.purse.yankie.events.EventType;
 import com.bmicro.purse.purse.yankie.events.PurseYankieCreatedEvent;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +16,9 @@ import java.util.UUID;
 public class PurseYankieEventsService {
 
     @Autowired
-    private KafkaTemplate<String, PurseYankieCreatedEvent> producer;
+    private KafkaTemplate<String, Event<?>> producer;
 
-    @Value("${topic.PurseYankie.name:PurseYankie}")
+    @Value("${topic.purseYankie.name:purseYankies}")
     private String topicPurseYankie;
 
     public void publish(PurseYankie purseYankie) {
